@@ -4,15 +4,14 @@ import Pessoas.PessoaJuridica;
 
 public class ContaPessoaJuridica extends Conta {
 
-    private Pessoas.PessoaJuridica dadosEmpresa;
+    private PessoaJuridica dadosEmpresa;
     private double linhaDeCredito;
 
     public ContaPessoaJuridica() {
     }
 
     public ContaPessoaJuridica(String agencia, String conta, double saldo, String razaoSocial, String nomeFantasia, String cnpj) {
-        super(agencia, conta, saldo);
-        this.dadosEmpresa = dadosEmpresa;
+        super(agencia, conta, saldo);       
         this.dadosEmpresa = new PessoaJuridica(razaoSocial, nomeFantasia, cnpj);
         this.linhaDeCredito = 1000;
     }
