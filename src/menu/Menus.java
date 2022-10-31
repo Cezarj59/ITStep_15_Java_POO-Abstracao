@@ -1,6 +1,8 @@
 package menu;
 
 import java.util.Scanner;
+import Saque.SaqueContaPessoaFisica;
+import Saque.SaqueContaPessoaJuridica;
 
 public class Menus {
 
@@ -13,7 +15,8 @@ public class Menus {
             System.out.println("\n----------Menu Inicial----------\n");
             System.out.println("[1] Cadastros");
             System.out.println("[2] Consultas");
-            System.out.println("[3] Sair");
+            System.out.println("[3] Saques");
+            System.out.println("[4] Sair");
             System.out.print("\nDigite a opção: ");
             String option = read.nextLine();
 
@@ -22,7 +25,9 @@ public class Menus {
                     menuCadastro();
                 case "2" ->
                     menuConsulta();
-                case "3" -> {
+                case "3" ->
+                    menuSaque();
+                case "4" -> {
                     System.out.println("\nSistema finalizado!!!");
                     System.exit(0);
                 }
@@ -71,6 +76,80 @@ public class Menus {
 
     }
 
+    public static void menuSaque() {
+
+        System.out.println("\n----------Menu Saque----------\n");
+        System.out.println("[1] Saque de Conta Pessoa Fisica");
+        System.out.println("[2] Saque de Conta Pessoa Juridica");
+        System.out.println("[3] Voltar");
+        System.out.println("[4] Sair");
+        System.out.print("\nDigite a opção: ");
+        String option = read.nextLine();
+
+        switch (option) {
+
+            case "1" -> {
+                SaqueContaPessoaFisica.saquePessoaFisica();
+                subMenuSaque();
+
+            }
+            case "2" -> {
+                SaqueContaPessoaJuridica.saquePessoaJuridica();
+                subMenuSaque();
+
+            }
+            case "3" ->
+                menu();
+
+            case "4" -> {
+                System.out.println("\nSistema finalizado!!!");
+                System.exit(0);
+            }
+
+            default -> {
+                System.err.println("\nOps!!! Você digitou uma opção invalida.\nTente Novamente.");
+                menuCadastro();
+            }
+        }
+
+    }
+
+    public static void subMenuSaque() {
+
+        while (0 == 0) {
+            System.out.println("\n------------Sub Menu Saque------------\n");
+            System.out.println("[1] Novo Saque de Conta Pessoa Fisica");
+            System.out.println("[2] Novo Saque de Conta Pessoa Juridica");
+            System.out.println("[3] Voltar");
+            System.out.println("[4] Sair");
+            System.out.print("\nDigite a opção: ");
+            String option = read.nextLine();
+
+            switch (option) {
+
+                case "1" ->
+                    SaqueContaPessoaFisica.saquePessoaFisica();
+
+                case "2" ->
+                    SaqueContaPessoaJuridica.saquePessoaJuridica();
+
+                case "3" ->
+                    menu();
+
+                case "4" -> {
+                    System.out.println("\nSistema finalizado!!!");
+                    System.exit(0);
+                }
+
+                default -> {
+                    System.err.println("\nOps!!! Você digitou uma opção invalida.\nTente Novamente.");
+                    menuCadastro();
+                }
+            }
+
+        }
+    }
+
     public static void menuConsulta() {
         System.out.println("\n----------Menu Consultas----------\n");
         System.out.println("[1] Consulta de Pessoa Fisica");
@@ -105,7 +184,7 @@ public class Menus {
     public static void subMenuCadastro() {
 
         while (0 == 0) {
-            System.out.println("\n------------------------------\n");
+            System.out.println("\n-----------Sub Menu Cadastros-----------\n");
             System.out.println("[1] Novo Cadastro de Pessoa Fisica");
             System.out.println("[2] Novo Cadastro de Pessoa Juridica");
             System.out.println("[3] Menu Inicial");
