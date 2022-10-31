@@ -9,6 +9,8 @@ public class ConsultaContasPessoaJuridica {
         ContaPessoaJuridica[] cadastro = Cadastros.CadastroContasPessoaJuridica.getPessoaJuridicaArray();
 
         System.out.println("\n\n==============Relatório de Contas PJ Cadastradas==============\n\n");
+        
+        
 
         if (cadastro.length != 0) {
 
