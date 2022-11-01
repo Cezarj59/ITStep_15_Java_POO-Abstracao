@@ -30,7 +30,7 @@
     <li>Cadastro de Pessoas Juridica</li>
     </ul>  
   </li>
-<li>Que seja possivel fazer <strong>SAQUE</strong> das contas cadastradas.</li>
+<li>Que seja possivel fazer <strong>SAQUES</strong> e  <strong>DEPOSITOS</strong> das contas cadastradas.</li>
 <li>Encapsule, use classes e deixe o psvm mais limpo possível.</li> 
 <li>Se necessário use POLIMORFISMO nos métodos.</li>
 <li>USE HERANÇA.</li>
