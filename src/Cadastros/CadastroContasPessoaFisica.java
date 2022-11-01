@@ -1,6 +1,9 @@
 package Cadastros;
 
 import Conta.ContaPessoaFisica;
+import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 public class CadastroContasPessoaFisica {
@@ -27,8 +30,11 @@ public class CadastroContasPessoaFisica {
 
         String genero = JOptionPane.showInputDialog("Gênero: ");
 
+        LocalDateTime horaCadastro = LocalDateTime.now();
+       
+
         pessoaFisicaArray = aumentar(pessoaFisicaArray);
-        pessoaFisicaArray[pessoaFisicaArray.length - 1] = new ContaPessoaFisica(agencia, conta, saldo, nome, cpf, genero);
+        pessoaFisicaArray[pessoaFisicaArray.length - 1] = new ContaPessoaFisica(agencia, conta, saldo, horaCadastro, nome, cpf, genero);
 
         System.err.println("\nCadastro efetuado com sucesso!!!\n");
     }

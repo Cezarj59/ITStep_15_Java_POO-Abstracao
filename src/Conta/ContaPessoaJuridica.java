@@ -1,6 +1,7 @@
 package Conta;
 
 import Pessoas.PessoaJuridica;
+import java.time.LocalDateTime;
 
 public class ContaPessoaJuridica extends Conta {
 
@@ -10,8 +11,8 @@ public class ContaPessoaJuridica extends Conta {
     public ContaPessoaJuridica() {
     }
 
-    public ContaPessoaJuridica(String agencia, String conta, double saldo, String razaoSocial, String nomeFantasia, String cnpj) {
-        super(agencia, conta, saldo);       
+    public ContaPessoaJuridica(String agencia, String conta, double saldo,LocalDateTime dataHora, String razaoSocial, String nomeFantasia, String cnpj) {
+        super(agencia, conta, saldo, dataHora);
         this.dadosEmpresa = new PessoaJuridica(razaoSocial, nomeFantasia, cnpj);
         this.linhaDeCredito = 1000;
     }

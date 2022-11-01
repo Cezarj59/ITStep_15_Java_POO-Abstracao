@@ -1,35 +1,36 @@
-package Saque;
 
-import Conta.ContaPessoaFisica;
+package Deposito;
+
+import Conta.ContaPessoaJuridica;
 import javax.swing.JOptionPane;
 
-public class SaqueContaPessoaFisica {
 
-    public static void saquePessoaFisica() {
-        ContaPessoaFisica[] conta = Cadastros.CadastroContasPessoaFisica.getPessoaFisicaArray();
+public class DepositoContaPessoaJuridica {
+public static void depositoPessoaJuridica() {
+        ContaPessoaJuridica[] conta = Cadastros.CadastroContasPessoaJuridica.getPessoaJuridicaArray();
 
         if (conta.length != 0) {
             
             System.out.println("\n------------------------------\n");
             
-            String cpf = JOptionPane.showInputDialog(null, "Digite o CPF do Cadastrado: ");
-            double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Valor do Saque: "));
-            boolean cpfNaoCadastrado = false;
+            String cnpj = JOptionPane.showInputDialog(null, "Digite o CNPJ do Cadastrado: ");
+            double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Valor do Deposito: "));
+            boolean cnpjNaoCadastrado = false;
             
             for (int i = 0; i < conta.length; i++) {
-                if (conta[i].getDadosPessoais().getCpf().equals(cpf)) {
-                    conta[i].saque(valor);
+                if (conta[i].getDadosEmpresa().getCnpj().equals(cnpj)) {
+                    conta[i].deposita(valor);
                     break;
-                } else if (!conta[i].getDadosPessoais().getCpf().equals(cpf) && conta.length == (i + 1)) {
-                    cpfNaoCadastrado = true;
+                } else if (!conta[i].getDadosEmpresa().getCnpj().equals(cnpj) && conta.length == (i + 1)) {
+                    cnpjNaoCadastrado = true;
                 }
             }
 
-            if (cpfNaoCadastrado) {
+            if (cnpjNaoCadastrado) {
                 System.out.println("""
                                
                                ################################
-                               #####  CPF não Cadastrado! #####
+                               ##### CNPJ não Cadastrado! #####
                                ################################
                                
                                """);
@@ -46,5 +47,4 @@ public class SaqueContaPessoaFisica {
         }
 
     }
-
 }
