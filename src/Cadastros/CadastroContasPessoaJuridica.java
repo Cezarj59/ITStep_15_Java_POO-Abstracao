@@ -1,14 +1,17 @@
 package Cadastros;
 
 import Conta.ContaPessoaJuridica;
+import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 public class CadastroContasPessoaJuridica {
 
-    static ContaPessoaJuridica[] pessoaFisicaArray = new ContaPessoaJuridica[0];
+    static ContaPessoaJuridica[] pessoaJuridicaArray = new ContaPessoaJuridica[0];
 
     public static ContaPessoaJuridica[] getPessoaJuridicaArray() {
-        return pessoaFisicaArray;
+        return pessoaJuridicaArray;
     }
 
     public static void cadastroPessoaJuridica() {
@@ -16,7 +19,7 @@ public class CadastroContasPessoaJuridica {
         System.err.println("\n---CADASTRO DE PESSOA JURIDICA---\n");
 
         String razaoSocial = JOptionPane.showInputDialog(null, "Informe a Razão Social: ");
-        
+
         String nomeFantasia = JOptionPane.showInputDialog(null, "Informe o nome Fantasia: ");
 
         String cnpj = JOptionPane.showInputDialog(null, "Informe o CNPJ: ");
@@ -27,8 +30,12 @@ public class CadastroContasPessoaJuridica {
 
         double saldo = Double.parseDouble(JOptionPane.showInputDialog(null, "Saldo: "));
 
-        pessoaFisicaArray = aumentar(pessoaFisicaArray);
-        pessoaFisicaArray[pessoaFisicaArray.length - 1] = new ContaPessoaJuridica(agencia, conta, saldo, razaoSocial, nomeFantasia, cnpj);
+        
+        LocalDateTime horaCadastro;
+        horaCadastro = LocalDateTime.now();
+
+        pessoaJuridicaArray = aumentar(pessoaJuridicaArray);
+        pessoaJuridicaArray[pessoaJuridicaArray.length - 1] = new ContaPessoaJuridica(agencia, conta, saldo, horaCadastro, razaoSocial, nomeFantasia, cnpj);
 
         System.out.println("\n##Cadastro efetuado com sucesso!!!##\n");
     }

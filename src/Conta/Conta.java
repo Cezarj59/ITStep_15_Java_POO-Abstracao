@@ -1,18 +1,32 @@
 package Conta;
 
+import java.text.DateFormat;
+
+import java.time.LocalDateTime;
+
 public abstract class Conta {
 
     private String agencia;
     private String conta;
     private double saldo;
+    LocalDateTime dataHora;
 
     public Conta() {
     }
 
-    public Conta(String agencia, String conta, double saldo) {
+    public Conta(String agencia, String conta, double saldo, LocalDateTime dataHora) {
         this.agencia = agencia;
         this.conta = conta;
         this.saldo = saldo;
+        this.dataHora = dataHora;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 
     public String getAgencia() {
@@ -46,7 +60,9 @@ public abstract class Conta {
         if (valor <= 0) {
             System.err.println("Impossível depositar valor negativo!");
         } else {
+
             saldo += valor;
+            System.err.println("\n$$$ Deposito Efetuado com Sucesso!!! $$$\n");
         }
     }
 

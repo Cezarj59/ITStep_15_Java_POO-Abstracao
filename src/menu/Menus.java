@@ -16,7 +16,8 @@ public class Menus {
             System.out.println("[1] Cadastros");
             System.out.println("[2] Consultas");
             System.out.println("[3] Saques");
-            System.out.println("[4] Sair");
+            System.out.println("[4] Depositos");
+            System.out.println("[0] Sair");
             System.out.print("\nDigite a opção: ");
             String option = read.nextLine();
 
@@ -27,7 +28,9 @@ public class Menus {
                     menuConsulta();
                 case "3" ->
                     menuSaque();
-                case "4" -> {
+                case "4" ->
+                    menuDeposito();
+                case "0" -> {
                     System.out.println("\nSistema finalizado!!!");
                     System.exit(0);
                 }
@@ -44,7 +47,7 @@ public class Menus {
         System.out.println("[1] Cadastros de Pessoa Fisica");
         System.out.println("[2] Cadastros de Pessoa Juridica");
         System.out.println("[3] Voltar");
-        System.out.println("[4] Sair");
+        System.out.println("[0] Sair");
         System.out.print("\nDigite a opção: ");
         String option = read.nextLine();
 
@@ -63,7 +66,7 @@ public class Menus {
             case "3" ->
                 menu();
 
-            case "4" -> {
+            case "0" -> {
                 System.out.println("\nSistema finalizado!!!");
                 System.exit(0);
             }
@@ -82,7 +85,7 @@ public class Menus {
         System.out.println("[1] Saque de Conta Pessoa Fisica");
         System.out.println("[2] Saque de Conta Pessoa Juridica");
         System.out.println("[3] Voltar");
-        System.out.println("[4] Sair");
+        System.out.println("[0] Sair");
         System.out.print("\nDigite a opção: ");
         String option = read.nextLine();
 
@@ -101,7 +104,7 @@ public class Menus {
             case "3" ->
                 menu();
 
-            case "4" -> {
+            case "0" -> {
                 System.out.println("\nSistema finalizado!!!");
                 System.exit(0);
             }
@@ -121,7 +124,7 @@ public class Menus {
             System.out.println("[1] Novo Saque de Conta Pessoa Fisica");
             System.out.println("[2] Novo Saque de Conta Pessoa Juridica");
             System.out.println("[3] Voltar");
-            System.out.println("[4] Sair");
+            System.out.println("[0] Sair");
             System.out.print("\nDigite a opção: ");
             String option = read.nextLine();
 
@@ -136,7 +139,81 @@ public class Menus {
                 case "3" ->
                     menu();
 
-                case "4" -> {
+                case "0" -> {
+                    System.out.println("\nSistema finalizado!!!");
+                    System.exit(0);
+                }
+
+                default -> {
+                    System.err.println("\nOps!!! Você digitou uma opção invalida.\nTente Novamente.");
+                    menuCadastro();
+                }
+            }
+
+        }
+    }
+
+    public static void menuDeposito() {
+
+        System.out.println("\n----------Menu Saque----------\n");
+        System.out.println("[1] Deposito em Conta Pessoa Fisica");
+        System.out.println("[2] Deposito em Conta Pessoa Juridica");
+        System.out.println("[3] Voltar");
+        System.out.println("[0] Sair");
+        System.out.print("\nDigite a opção: ");
+        String option = read.nextLine();
+
+        switch (option) {
+
+            case "1" -> {
+                Deposito.DepositoContaPessoaFisica.depositoPessoaFisica();
+                subMenuDeposito();
+
+            }
+            case "2" -> {
+                Deposito.DepositoContaPessoaJuridica.depositoPessoaJuridica();
+                subMenuDeposito();
+
+            }
+            case "3" ->
+                menu();
+
+            case "0" -> {
+                System.out.println("\nSistema finalizado!!!");
+                System.exit(0);
+            }
+
+            default -> {
+                System.err.println("\nOps!!! Você digitou uma opção invalida.\nTente Novamente.");
+                menuCadastro();
+            }
+        }
+
+    }
+
+    public static void subMenuDeposito() {
+
+        while (0 == 0) {
+            System.out.println("\n------------Sub Menu Saque------------\n");
+            System.out.println("[1] Novo Deposito em Conta Pessoa Fisica");
+            System.out.println("[2] Novo Deposito em Conta Pessoa Juridica");
+            System.out.println("[3] Voltar");
+            System.out.println("[0] Sair");
+            System.out.print("\nDigite a opção: ");
+            String option = read.nextLine();
+
+            switch (option) {
+
+                case "1" ->
+                    Deposito.DepositoContaPessoaFisica.depositoPessoaFisica();
+
+                case "2" ->
+                    Deposito.DepositoContaPessoaJuridica.depositoPessoaJuridica();
+
+                case "3" ->
+                    menu();
+
+                case "0" -> {
                     System.out.println("\nSistema finalizado!!!");
                     System.exit(0);
                 }
@@ -155,7 +232,7 @@ public class Menus {
         System.out.println("[1] Consulta de Pessoa Fisica");
         System.out.println("[2] Consulta de Pessoa Juridica");
         System.out.println("[3] Voltar");
-        System.out.println("[4] Sair");
+        System.out.println("[0] Sair");
         System.out.print("\nDigite a opção: ");
         String option = read.nextLine();
 
@@ -169,7 +246,7 @@ public class Menus {
             case "3" ->
                 menu();
 
-            case "4" -> {
+            case "0" -> {
                 System.out.println("\nSistema finalizado!!!");
                 System.exit(0);
 

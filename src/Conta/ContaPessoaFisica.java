@@ -1,20 +1,19 @@
 package Conta;
 
 import Pessoas.PessoaFisica;
+import java.time.LocalDateTime;
 
 public class ContaPessoaFisica extends Conta {
 
     private PessoaFisica dadosPessoais;
 
-      public ContaPessoaFisica() {
-    }
-      
-    public ContaPessoaFisica(String agencia, String conta, double saldo, String nome, String cpf, String genero) {
-        super(agencia, conta, saldo);
-        this.dadosPessoais = new PessoaFisica(nome, cpf, genero);
+    public ContaPessoaFisica() {
     }
 
-  
+    public ContaPessoaFisica(String agencia, String conta, double saldo,  LocalDateTime dataHora, String nome, String cpf, String genero) {
+        super(agencia, conta, saldo, dataHora);
+        this.dadosPessoais = new PessoaFisica(nome, cpf, genero);
+    }
 
     public PessoaFisica getDadosPessoais() {
         return dadosPessoais;
@@ -23,6 +22,7 @@ public class ContaPessoaFisica extends Conta {
     public void setDadosPessoais(PessoaFisica dadosPessoais) {
         this.dadosPessoais = dadosPessoais;
     }
+
 
     @Override
     public void saque(double valor) {
