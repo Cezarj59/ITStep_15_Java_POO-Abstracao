@@ -14,7 +14,7 @@ public class ConsultaContasPessoaFisica {
 
         System.out.println("\n\n====Relatório de Contas PF Cadastradas====\n\n");
 
-        if (cadastro.length != 0) {
+        if (cadastro.length > 0) {
 
             for (int i = 0; i < cadastro.length; i++) {
 

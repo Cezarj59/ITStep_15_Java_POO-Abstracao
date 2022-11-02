@@ -14,7 +14,7 @@ public class ConsultaContasPessoaJuridica {
 
         System.out.println("\n\n==============Relatório de Contas PJ Cadastradas==============\n\n");
 
-        if (cadastro.length != 0) {
+        if (cadastro.length > 0) {
 
             for (int i = 0; i < cadastro.length; i++) {
                 if (cadastro[i] != null) {
